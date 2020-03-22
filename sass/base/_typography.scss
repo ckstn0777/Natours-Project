@@ -29,3 +29,41 @@
     animation-duration: 3s;
   }
 }
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(
+    to right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  // HTML 요소는 박스(box)로 이루어져 있습니다.
+  // 배경 이미지나 배경색을 그 박스 중 어디에 넣을 지 정하는 속성이 background-clip입니다.
+  -webkit-background-clip: text;
+  // color를 투명하게. 원래 글자 색이 안보이면서 위에서 지정한 배경색상이 보임.
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+  }
+}
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: 1.6rem;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}
