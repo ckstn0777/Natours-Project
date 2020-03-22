@@ -1,27 +1,37 @@
-@charset "UTF-8";
 /*
 COLORS:
 Light green: #7ed56f
 Medium green: #55c57a
 Dark green: #28b485
 */
+
+$color-primary: #7ed56f;
+$color-primary-light: #55c57a;
+$color-primary-dark: #28b485;
+
+$color-gray-dark: #777;
+$color-white: #fff;
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 html {
   /*100% -> 16px
     62.5% -> 10px*/
-  font-size: 62.5%; }
+  font-size: 62.5%;
+}
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   /* font-size: 16px; */
   line-height: 1.7;
-  color: #777;
-  padding: 3rem; }
+  color: $color-gray-dark;
+  padding: 3rem;
+}
 
 .header {
   /*vh : 반응형 웹디자인은 화면의 크기에 동적으로 대응하기 위해 % 단위를 자주 사용한다. 
@@ -29,7 +39,12 @@ body {
     Viewport 단위는 상대적인 단위로 viewport를 기준으로 한 상대적 사이즈를 의미한다.*/
   height: 95vh;
   /*to right bottom쪽으로, 즉 우하단 쪽으로 밝은 초록색에서 어두운 초록색으로 그라디언트하게*/
-  background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/hero.jpg);
   /*cover : 배경이미지의 크기 비율을 유지한 상태에서 부모 요소의 width, height 중 큰값에 배경이미지를 맞춘다. 
   따라서 이미지의 일부가 보이지 않을 수 있다.*/
   background-size: cover;
@@ -40,17 +55,20 @@ body {
   https://bennettfeely.com/clippy/ */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /*logo-box때문에 relative로 지정해줌.*/
-  position: relative; }
+  position: relative;
+}
 
 .header__logo-box {
   /*부모 요소 또는 가장 가까이 있는 조상 요소(static 제외)를 기준으로 좌표 프로퍼티(top, bottom, left, right)만큼 이동한다. 
     즉, relative, absolute, fixed 프로퍼티가 선언되어 있는 부모 또는 조상 요소를 기준으로 위치가 결정된다.*/
   position: absolute;
   top: 4rem;
-  left: 4rem; }
+  left: 4rem;
+}
 
 .header__logo {
-  height: 3.5rem; }
+  height: 3.5rem;
+}
 
 .header__text-box {
   /*absolute가 생각보다 꽤 유용한듯.*/
@@ -59,14 +77,16 @@ body {
   left: 50%;
   /* 50%, 50%만큼 이동시켰다가 다시 거기서 -50%, -50%만큼 이동시켜버리네. 그래서 정확히 가운데가 됨. 이건 개꿀팀이다. */
   transform: translate(-50%, -50%);
-  text-align: center; }
+  text-align: center;
+}
 
 .heading-primary {
-  color: #fff;
+  color: $color-white;
   text-transform: uppercase;
   /*backface-visibility는 요소의 뒷쪽에서 앞면이 보이게 할지 정하는 속성입니다.*/
   backface-visibility: hidden;
-  margin-bottom: 6rem; }
+  margin-bottom: 6rem;
+}
 
 .heading-primary--main {
   /*span은 기본이 inline이라서 줄바꿈해주기 위해서 block*/
@@ -75,6 +95,7 @@ body {
   font-weight: 400;
   /*글자 사이 간격*/
   letter-spacing: 3.5rem;
+
   /*왼쪽에서 이동하는 애니메이션 설정*/
   animation-name: moveInLeft;
   animation-duration: 3s;
@@ -83,16 +104,19 @@ body {
     animation-delay, 
     animation-iteration-count,
     animation-timing-function
-  */ }
+  */
+}
 
 .heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1.75rem;
+
   /*오른쪽에서 이동하는 애니메이션 설정*/
   animation-name: moveInRight;
-  animation-duration: 3s; }
+  animation-duration: 3s;
+}
 
 /*keyframes : CSS 애니메이션과 트랜지션 방식의 주된 차이는 @keyframes rule에 있다. 
 이 rule을 사용하면 애니메이션의 흐름(sequence) 중의 여러 시점(breakpoint)에서 CSS 프로퍼티값을 지정할 수 있다.*/
@@ -100,38 +124,56 @@ body {
   0% {
     /*inital : 왼쪽 100px에서 시작*/
     opacity: 0;
-    transform: translateX(-10rem); }
+    transform: translateX(-10rem);
+  }
+
   80% {
     /*오른쪽 10px갔다가*/
-    transform: translate(1rem); }
+    transform: translate(1rem);
+  }
+
   100% {
     /*final : 원래자리로 복귀*/
     opacity: 1;
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 @keyframes moveInRight {
   0% {
     /*inital*/
     opacity: 0;
-    transform: translateX(10rem); }
+    transform: translateX(10rem);
+  }
+
   80% {
-    transform: translateX(-1rem); }
+    transform: translateX(-1rem);
+  }
+
   100% {
     /*final*/
     opacity: 1;
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 @keyframes moveInBottom {
   0% {
     /*inital*/
     opacity: 0;
-    transform: translateY(3rem); }
+    transform: translateY(3rem);
+  }
+
   80% {
-    transform: translateY(-1rem); }
+    transform: translateY(-1rem);
+  }
+
   100% {
     /*final*/
     opacity: 1;
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 /*link: 방문전 링크상태
 visited: 방문후 링크상태*/
@@ -146,22 +188,26 @@ visited: 방문후 링크상태*/
   transition: all 0.2s;
   /*btn안에 가상요소가 absolute를 사용해서 relative사용*/
   position: relative;
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+}
 
 .btn:hover {
   /*마이너스가 올라가는 방향임*/
   transform: translateY(-3px);
   /*horizon offset - vertical offset - Blur - */
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
 
 /*active는 클릭했을때*/
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
 
 .btn--white {
-  background-color: #fff;
-  color: #777; }
+  background-color: $color-white;
+  color: $color-gray-dark;
+}
 
 /*가상요소. 별도의 css를 지정하지 않아도 지정한 것 처럼 선택할 수 있다. 가상클래스처럼 선택자에 추가되며
 존재하지 않는 요소를 존재하는 것처럼 부여하여 문서의 특정 부분 선택이 가능하다.
@@ -178,19 +224,20 @@ visited: 방문후 링크상태*/
   left: 0;
   /*무조건 뒤에숨기*/
   z-index: -1;
-  transition: all 0.4s; }
-
+  transition: all 0.4s;
+}
 .btn--white::after {
-  background-color: #fff; }
-
+  background-color: $color-white;
+}
 /*가상요소에 대한 hover설정*/
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
-
+  opacity: 0;
+}
 .btn--animated {
   /*아래에서 올라가는 애니메이션 설정*/
   animation-name: moveInBottom;
   animation-duration: 3s;
   /*backwards : 애니메이션의 스타일을 애니메이션이 실제로 시작되기 전에 미리 적용합니다*/
-  animation-fill-mode: backwards; }
+  animation-fill-mode: backwards;
+}
