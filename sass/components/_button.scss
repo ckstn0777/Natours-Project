@@ -1,0 +1,70 @@
+.btn {
+  /*link: 방문전 링크상태
+  visited: 방문후 링크상태*/
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    /*transition은 속성을 서서히 변화시키는 속성입니다.*/
+    transition: all 0.2s;
+    /*btn안에 가상요소가 absolute를 사용해서 relative사용*/
+    position: relative;
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    /*마이너스가 올라가는 방향임*/
+    transform: translateY(-3px);
+    /*horizon offset - vertical offset - Blur - */
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    /*가상요소에 대한 hover설정*/
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  /*active는 클릭했을때*/
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-gray-dark;
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  /*가상요소. 별도의 css를 지정하지 않아도 지정한 것 처럼 선택할 수 있다. 가상클래스처럼 선택자에 추가되며
+  존재하지 않는 요소를 존재하는 것처럼 부여하여 문서의 특정 부분 선택이 가능하다.
+  그중 ::after는 요소의 끝부분에 콘텐츠 추가*/
+  &::after {
+    /*가짜속성이다. 왜냐하면 HTML문서에 정보로 포함되지 않는 요소를 CSS에서 새롭게 생성하기 때문이다*/
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*무조건 뒤에숨기*/
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    /*아래에서 올라가는 애니메이션 설정*/
+    animation-name: moveInBottom;
+    animation-duration: 3s;
+    /*backwards : 애니메이션의 스타일을 애니메이션이 실제로 시작되기 전에 미리 적용합니다*/
+    animation-fill-mode: backwards;
+  }
+}

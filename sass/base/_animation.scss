@@ -1,0 +1,56 @@
+/*keyframes : CSS 애니메이션과 트랜지션 방식의 주된 차이는 @keyframes rule에 있다. 
+이 rule을 사용하면 애니메이션의 흐름(sequence) 중의 여러 시점(breakpoint)에서 CSS 프로퍼티값을 지정할 수 있다.*/
+@keyframes moveInLeft {
+  0% {
+    /*inital : 왼쪽 100px에서 시작*/
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    /*오른쪽 10px갔다가*/
+    transform: translate(1rem);
+  }
+
+  100% {
+    /*final : 원래자리로 복귀*/
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    /*inital*/
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    /*final*/
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    /*inital*/
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  80% {
+    transform: translateY(-1rem);
+  }
+
+  100% {
+    /*final*/
+    opacity: 1;
+    transform: translate(0);
+  }
+}

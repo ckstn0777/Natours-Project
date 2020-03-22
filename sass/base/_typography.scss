@@ -1,0 +1,31 @@
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  /*backface-visibility는 요소의 뒷쪽에서 앞면이 보이게 할지 정하는 속성입니다.*/
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+
+  &--main {
+    /*span은 기본이 inline이라서 줄바꿈해주기 위해서 block*/
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    /*글자 사이 간격*/
+    letter-spacing: 3.5rem;
+
+    /*왼쪽에서 이동하는 애니메이션 설정*/
+    animation-name: moveInLeft;
+    animation-duration: 3s;
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+
+    /*오른쪽에서 이동하는 애니메이션 설정*/
+    animation-name: moveInRight;
+    animation-duration: 3s;
+  }
+}
