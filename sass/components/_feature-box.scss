@@ -1,0 +1,28 @@
+.feature-box {
+  background-color: rgba($color-white, 0.8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+  transition: all 0.3s;
+  &__icon {
+    font-size: 6rem;
+    margin-bottom: 0.5rem;
+
+    background-image: linear-gradient(
+      to right,
+      $color-primary-light,
+      $color-primary-dark
+    );
+    // HTML 요소는 박스(box)로 이루어져 있습니다.
+    // 배경 이미지나 배경색을 그 박스 중 어디에 넣을 지 정하는 속성이 background-clip입니다.
+    -webkit-background-clip: text;
+    // color를 투명하게. 원래 글자 색이 안보이면서 위에서 지정한 배경색상이 보임.
+    color: transparent;
+  }
+
+  &:hover {
+    transform: translateY(-1.5rem) scale(1.03);
+  }
+}
