@@ -1,6 +1,7 @@
 .btn {
   /*link: 방문전 링크상태
   visited: 방문후 링크상태*/
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -13,6 +14,9 @@
     /*btn안에 가상요소가 absolute를 사용해서 relative사용*/
     position: relative;
     font-size: 1.6rem;
+
+    border: none;
+    cursor: pointer;
   }
 
   &:hover {
@@ -29,7 +33,9 @@
   }
 
   /*active는 클릭했을때*/
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }
@@ -55,7 +61,7 @@
   그중 ::after는 요소의 끝부분에 콘텐츠 추가*/
   &::after {
     /*가짜속성이다. 왜냐하면 HTML문서에 정보로 포함되지 않는 요소를 CSS에서 새롭게 생성하기 때문이다*/
-    content: '';
+    content: "";
     display: inline-block;
     height: 100%;
     width: 100%;
