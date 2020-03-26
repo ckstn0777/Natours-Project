@@ -42,12 +42,20 @@
     }
   }
 
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
   /*가상요소. 별도의 css를 지정하지 않아도 지정한 것 처럼 선택할 수 있다. 가상클래스처럼 선택자에 추가되며
   존재하지 않는 요소를 존재하는 것처럼 부여하여 문서의 특정 부분 선택이 가능하다.
   그중 ::after는 요소의 끝부분에 콘텐츠 추가*/
   &::after {
     /*가짜속성이다. 왜냐하면 HTML문서에 정보로 포함되지 않는 요소를 CSS에서 새롭게 생성하기 때문이다*/
-    content: "";
+    content: '';
     display: inline-block;
     height: 100%;
     width: 100%;
