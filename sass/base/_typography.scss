@@ -16,6 +16,12 @@
     /*왼쪽에서 이동하는 애니메이션 설정*/
     animation-name: moveInLeft;
     animation-duration: 3s;
+
+    @include respond(phone) {
+      // width < 600?
+      letter-spacing: 1rem;
+      font-size: 5rem;
+    }
   }
 
   &--sub {
@@ -27,6 +33,11 @@
     /*오른쪽에서 이동하는 애니메이션 설정*/
     animation-name: moveInRight;
     animation-duration: 3s;
+
+    @include respond(phone) {
+      // width < 600?
+      letter-spacing: 0.5rem;
+    }
   }
 }
 
@@ -47,6 +58,16 @@
   color: transparent;
   letter-spacing: 0.2rem;
   transition: all 0.2s;
+
+  @include respond(tab-port) {
+    // width < 600?
+    font-size: 3rem;
+  }
+
+  @include respond(phone) {
+    // width < 600?
+    font-size: 2.5rem;
+  }
 
   &:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);

@@ -5,6 +5,26 @@ Light green: #7ed56f
 Medium green: #55c57a
 Dark green: #28b485
 */
+/*
+0-600px: phone
+600-900px: Tablet portrait;
+900-1200px: Tablet landscape
+1200px - 1800px : normal styles apply
+1800px - : Big Desktop
+*/
+/*
+  breakpoint argument choices:
+  - phone
+  - tab-port
+  - tab-land
+  - big-desktop
+  
+  1em = 16px
+  em은 부모 영향을 받는다.
+*/
+/*
+  order: base + typography > general layout + grid > page layout > components
+*/
 * {
   margin: 0;
   padding: 0;
@@ -14,6 +34,15 @@ html {
   /*100% -> 16px
       62.5% -> 10px*/
   font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   font-family: "Lato", sans-serif;
@@ -22,6 +51,9 @@ body {
   line-height: 1.7;
   color: #777;
   padding: 3rem; }
+  @media (max-width: 75em) {
+    body {
+      padding: 0; } }
 
 /*keyframes : CSS 애니메이션과 트랜지션 방식의 주된 차이는 @keyframes rule에 있다. 
 이 rule을 사용하면 애니메이션의 흐름(sequence) 중의 여러 시점(breakpoint)에서 CSS 프로퍼티값을 지정할 수 있다.*/
@@ -78,6 +110,10 @@ body {
     /*왼쪽에서 이동하는 애니메이션 설정*/
     animation-name: moveInLeft;
     animation-duration: 3s; }
+    @media (max-width: 37.5em) {
+      .heading-primary--main {
+        letter-spacing: 1rem;
+        font-size: 5rem; } }
   .heading-primary--sub {
     display: block;
     font-size: 2rem;
@@ -86,6 +122,9 @@ body {
     /*오른쪽에서 이동하는 애니메이션 설정*/
     animation-name: moveInRight;
     animation-duration: 3s; }
+    @media (max-width: 37.5em) {
+      .heading-primary--sub {
+        letter-spacing: 0.5rem; } }
 
 .heading-secondary {
   font-size: 3.5rem;
@@ -97,6 +136,12 @@ body {
   color: transparent;
   letter-spacing: 0.2rem;
   transition: all 0.2s; }
+  @media (max-width: 56.25em) {
+    .heading-secondary {
+      font-size: 3rem; } }
+  @media (max-width: 37.5em) {
+    .heading-secondary {
+      font-size: 2.5rem; } }
   .heading-secondary:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);
     text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
@@ -557,6 +602,9 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /*logo-box때문에 relative로 지정해줌.*/
   position: relative; }
+  @media (max-width: 37.5em) {
+    .header {
+      clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); } }
   .header__logo-box {
     /*부모 요소 또는 가장 가까이 있는 조상 요소(static 제외)를 기준으로 좌표 프로퍼티(top, bottom, left, right)만큼 이동한다. 
           즉, relative, absolute, fixed 프로퍼티가 선언되어 있는 부모 또는 조상 요소를 기준으로 위치가 결정된다.*/
@@ -579,6 +627,13 @@ body {
   margin: 0 auto; }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
+    @media (max-width: 56.25em) {
+      .row:not(:last-child) {
+        margin-bottom: 6rem; } }
+  @media (max-width: 56.25em) {
+    .row {
+      max-width: 50rem;
+      padding: 0 3rem; } }
   .row::after {
     content: "";
     clear: both;
@@ -587,6 +642,13 @@ body {
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }
+      @media (max-width: 56.25em) {
+        .row [class^="col-"]:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 6rem; } }
+    @media (max-width: 56.25em) {
+      .row [class^="col-"] {
+        width: 100% !important; } }
   .row .col-1-of-2 {
     width: calc((100% - 6rem) / 2); }
   .row .col-1-of-3 {
@@ -604,6 +666,9 @@ body {
   background-color: #333;
   padding: 10rem 0;
   font-size: 1.4rem; }
+  @media (max-width: 56.25em) {
+    .footer {
+      padding: 8rem 0; } }
   .footer__logo-box {
     text-align: center;
     margin-bottom: 8rem; }
@@ -614,6 +679,10 @@ body {
     border-top: 1px solid #eee;
     padding: 2rem;
     display: inline-block; }
+    @media (max-width: 56.25em) {
+      .footer__navigation {
+        width: 100%;
+        text-align: center; } }
   .footer__list {
     list-style: none; }
   .footer__item {
@@ -632,6 +701,10 @@ body {
     padding-top: 2rem;
     width: 80%;
     float: right; }
+    @media (max-width: 56.25em) {
+      .footer__copyright {
+        width: 100%;
+        float: none; } }
 
 .navigation__checkbox {
   display: none; }
@@ -648,6 +721,14 @@ body {
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
   text-align: center;
   cursor: pointer; }
+  @media (max-width: 56.25em) {
+    .navigation__button {
+      top: 4rem;
+      right: 4rem; } }
+  @media (max-width: 37.5em) {
+    .navigation__button {
+      top: 3rem;
+      right: 3rem; } }
 
 .navigation__background {
   height: 6rem;
@@ -659,6 +740,14 @@ body {
   background-image: radial-gradient(#55c57a, #28b485);
   z-index: 1000;
   transition: all 0.8s; }
+  @media (max-width: 56.25em) {
+    .navigation__background {
+      top: 4.5rem;
+      right: 4.5rem; } }
+  @media (max-width: 37.5em) {
+    .navigation__background {
+      top: 3.5rem;
+      right: 3.5rem; } }
 
 .navigation__nav {
   height: 100vh;

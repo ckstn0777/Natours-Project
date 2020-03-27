@@ -12,3 +12,53 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+// media query manager
+/*
+0-600px: phone
+600-900px: Tablet portrait;
+900-1200px: Tablet landscape
+1200px - 1800px : normal styles apply
+1800px - : Big Desktop
+*/
+
+/*
+  breakpoint argument choices:
+  - phone
+  - tab-port
+  - tab-land
+  - big-desktop
+  
+  1em = 16px
+  em은 부모 영향을 받는다.
+*/
+
+/*
+  order: base + typography > general layout + grid > page layout > components
+*/
+@mixin respond($breakpoint) {
+  // 600px 이하일때
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+  // 900px 이하일때
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+  // 1200px 이하일때
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  // 1800px 이상일때
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
