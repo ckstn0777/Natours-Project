@@ -1,8 +1,6 @@
 # Natours-Project
 Udemy Advanced CSS and Sass: Flexbox, Grid, Animations and More! 강의 공부내용
 
-</br>
-
 ### 기술 스택
 - HTML5
 - CSS
@@ -10,14 +8,10 @@ Udemy Advanced CSS and Sass: Flexbox, Grid, Animations and More! 강의 공부�
 - CSS BEM 방식
 - 반응형 디자인
 
-</br>
-
 ### 실행방법
 1. visual studio code 실행
 2. index.html에서 마우스 오른쪽 클릭 후 `Open with Live Server` 선택
 3. scss 수정 시에는 `npm run compile:sass` 실행 후 저장할 것
-
-</br>
 
 ### Commit 이력
 - lecture-1 : scene#1 제작
@@ -32,8 +26,6 @@ Udemy Advanced CSS and Sass: Flexbox, Grid, Animations and More! 강의 공부�
 - lecture-10 : scene#8 (Navigation) 제작
 - lecture-11 : scene#9 (Pop up) 제작
 - lecture-12 : 반응형 적용
-
-</br>
 
 ### 결과 화면
 ![screencapture-127-0-0-1-5500-index-html-2020-08-29-19_20_48](https://user-images.githubusercontent.com/44571683/91634752-c4899400-ea2d-11ea-9ecd-77382872f43b.png)
